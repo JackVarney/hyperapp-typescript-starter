@@ -1,4 +1,6 @@
-const path = require("path");
+const { resolve } = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -11,8 +13,16 @@ module.exports = {
       }
     ]
   },
+
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: "index.html"
+    })
+  ],
+
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: resolve(__dirname, "dist"),
     filename: "[name].bundle.js"
   }
 };
