@@ -1,14 +1,5 @@
 const presets = [
   [
-    "@babel/env",
-    {
-      targets: {
-        chrome: "58",
-        ie: "11"
-      }
-    }
-  ],
-  [
     "@babel/preset-typescript",
     {
       isTSX: true,
@@ -18,4 +9,13 @@ const presets = [
   ]
 ];
 
-module.exports = { presets };
+const plugins = [
+  [
+    "@babel/plugin-transform-react-jsx",
+    {
+      pragma: "h"
+    }
+  ]
+];
+
+module.exports = { presets, plugins };

@@ -4,12 +4,17 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
+
+  resolve: { extensions: [".ts", ".tsx", ".js"] },
+
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /\.tsx?$/,
         exclude: /(node_modules)/,
-        loader: "babel-loader"
+        use: {
+          loader: "babel-loader"
+        }
       }
     ]
   },
