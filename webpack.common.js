@@ -15,6 +15,15 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
+      },
+      {
+        test: /\.postcss$/,
+        use: [
+          "style-loader",
+          {
+            loader: "postcss-loader"
+          }
+        ]
       }
     ]
   },
